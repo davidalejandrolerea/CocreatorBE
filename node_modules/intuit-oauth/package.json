@@ -1,0 +1,94 @@
+{
+  "name": "intuit-oauth",
+  "version": "4.0.0",
+  "description": "Intuit Node.js client for OAuth2.0 and OpenIDConnect",
+  "main": "./src/OAuthClient.js",
+  "scripts": {
+    "start": "node index.js",
+    "karma": "karma start karma.conf.js",
+    "test": "nyc mocha",
+    "snyk": "snyk test",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "posttest": "nyc check-coverage",
+    "test-watch": "mocha --watch --reporter=spec",
+    "test-debug": "mocha --inspect-brk --watch test",
+    "show-coverage": "npm test; open -a 'Google Chrome' coverage/index.html",
+    "clean-install": "rm -rf node_modules && npm install",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "keywords": [
+    "intuit-oauth",
+    "intuit-oauth-nodejs",
+    "intuit-nodejs",
+    "oauth2.0",
+    "openid",
+    "openidConnect",
+    "quickbooks-accounting",
+    "quickbooks-payment"
+  ],
+  "nyc": {
+    "exclude": [
+      "node_modules",
+      "bin",
+      "coverage",
+      ".nyc_output",
+      "sample",
+      "sample/node_modules"
+    ],
+    "check-coverage": true,
+    "lines": 95,
+    "statements": 95,
+    "functions": 90,
+    "branches": 85,
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary",
+      "html",
+      "json"
+    ]
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intuit/oauth-jsclient.git"
+  },
+  "author": {
+    "name": "Anil Kumar",
+    "email": "anil_kumar3@intuit.com"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/intuit/oauth-jsclient/issues"
+  },
+  "homepage": "https://github.com/intuit/oauth-jsclient",
+  "dependencies": {
+    "atob": "2.1.2",
+    "csrf": "^3.0.4",
+    "jsonwebtoken": "^8.3.0",
+    "popsicle": "10.0.1",
+    "query-string": "^6.12.1",
+    "rsa-pem-from-mod-exp": "^0.8.4",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "btoa": "^1.2.1",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "mocha": "^7.1.2",
+    "nock": "^9.2.3",
+    "nyc": "^15.0.1",
+    "prettier": "^2.0.5",
+    "sinon": "^9.0.2",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
+}
